@@ -73,7 +73,7 @@ const MarketStack = createStackNavigator(
     {
         Market: MarketScreen,
     },
-    config
+    {headerMode: 'none'}
 );
 
 MarketStack.path = '';

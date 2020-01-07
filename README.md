@@ -1,18 +1,5 @@
-# black-react-native
-## Cards JSON
+# react-native market app
+## JSON
 ~~~
-        {
-            key: '1',
-            status: 'open',   //blind, ready, open, pass, ongoing, matching, end
-            name: '아이린',
-            location: '인천, 부천',
-            age: '25',
-            job: '항공사',
-            image: 'https://trello-attachments.s3.amazonaws.com/5e0d3abaa9b126632d3a19c9/5e0d4f99ee40b08506182cc3/7be28e7575bce5e61546938c87e2f165/image.png',
-            serveDate: 'DATE',
-            openDate: 'DATE',
-            blindDate: 'DATE',
-            matchDate: 'DATE',
-            
-        },
+        {key: '1', status: 'open', name: '삼각산 살림장', location: '서울 삼각산', image: 'https://trello-attachments.s3.amazonaws.com/5db8f4b864493b4c6f0c56bd/5df9f0373a36ca54c33dd631/6027010fe335210f3d95fd21cd7fcd07/image.png'},
 ~~~

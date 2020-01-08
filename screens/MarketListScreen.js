@@ -34,7 +34,7 @@ export default class MarketListScreen extends React.Component {
               numColumns={2}
               horizontal={false}
               renderItem={({item}) =>
-              <TouchableWithoutFeedback
+              <TouchableOpacity
                   onPress={() => this.props.navigation.navigate('MarketDetail')}>
                   <View>
                       <View>
@@ -57,7 +57,7 @@ export default class MarketListScreen extends React.Component {
                           </View>
                       </View>
                   </View>
-              </TouchableWithoutFeedback>}
+              </TouchableOpacity>}
           />
       </View>
     );

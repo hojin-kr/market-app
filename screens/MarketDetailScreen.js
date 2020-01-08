@@ -23,7 +23,7 @@ export default class MarketDetailScreen extends React.Component {
 
     ];
     return (
-      <View>
+      <View style={{flex: 1}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-around', marginTop: 10}}>
                 <View>
                     <Image
@@ -52,26 +52,27 @@ export default class MarketDetailScreen extends React.Component {
               data={seller}
               // ListHeaderComponent={}
               renderItem={({item}) =>
-              <TouchableWithoutFeedback
+              <TouchableOpacity
+                  style={{borderBottomWidth: 0.3, justifyContent: 'center', padding: 10 }}
                   onPress={() => this.props.navigation.navigate('Details')}>
-                  <View style={{height: 70, flexDirection: 'row', justifyContent: 'space-around', }}>
-                      <View>
+                  <View style={{flexDirection: 'row', justifyContent: 'space-around', }}>
+                      <View style={{justifyContent: 'center'}}>
                           <Image
                               source={{uri: item.image}}
-                              style={{width: 50, height: 50, borderTopLeftRadius: 10, borderTopRightRadius: 10 ,backgroundColor: '#000000'}}/>
+                              style={{width: 70, height: 70, borderTopLeftRadius: 10, borderTopRightRadius: 10 ,backgroundColor: '#000000'}}/>
                       </View>
-                      <View style={{width: 220}}>
+                      <View style={{width: 220, justifyContent: 'center'}}>
                           <Text>{item.name} seller name</Text>
                           <Text>{item.name} seller Description</Text>
                           <Text>{item.name} seller Description</Text>
                       </View>
-                      <View>
+                      <View style={{justifyContent: 'center'}}>
                         <Image
                             source={{uri: 'https://trello-attachments.s3.amazonaws.com/5db8f4b864493b4c6f0c56bd/5dd0dd31e005e438c97409da/160eddd8d006621aecf812c654e25bf5/image.png'}}
                             style={{width: 30, height: 30}}/>
                       </View>
                   </View>
-              </TouchableWithoutFeedback>}
+              </TouchableOpacity>}
           />
       </View>
     );

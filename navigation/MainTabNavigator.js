@@ -7,7 +7,8 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import MarketScreen from '../screens/MarketScreen';
+import MarketListScreen from '../screens/MarketListScreen';
+import MarketDetailScreen from '../screens/MarketDetailScreen';
 
 const config = Platform.select({
     web: {headerMode: 'screen'},
@@ -71,9 +72,19 @@ SettingsStack.path = '';
 
 const MarketStack = createStackNavigator(
     {
-        Market: MarketScreen,
-    },
-    {headerMode: 'none'}
+        MarketList: {
+          screen: MarketListScreen,
+          navigationOptions: {
+            title: "Market"
+          }
+        },
+        MarketDetail : {
+          screen : MarketDetailScreen,
+          navigationOptions: {
+            title: "Market Detail"
+          }
+        }
+    }
 );
 
 MarketStack.path = '';

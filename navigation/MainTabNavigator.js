@@ -9,6 +9,7 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import MarketListScreen from '../screens/MarketListScreen';
 import MarketDetailScreen from '../screens/MarketDetailScreen';
+import MarketCreatScreen from '../screens/MarketCreatScreen';
 
 const config = Platform.select({
     web: {headerMode: 'screen'},
@@ -87,11 +88,40 @@ const MarketStack = createStackNavigator(
     }
 );
 
+MarketStack.navigationOptions = {
+    tabBarLabel: 'Market',
+    tabBarIcon: ({focused}) => (
+        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}/>
+    ),
+};
+
 MarketStack.path = '';
+
+const MarketCreatStack = createStackNavigator(
+  {
+    MarketCreat: {
+      screen: MarketCreatScreen,
+      navigationOptions: {
+        title: "Market Creat"
+      }
+    }
+  }
+);
+
+MarketCreatStack.navigationOptions = {
+    tabBarLabel: 'Create',
+    tabBarIcon: ({focused}) => (
+        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}/>
+    ),
+};
+
+
+MarketCreatStack.path = '';
 
 
 const tabNavigator = createBottomTabNavigator({
     MarketStack,
+    MarketCreatStack,
 });
 
 tabNavigator.path = '';

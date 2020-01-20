@@ -42,7 +42,7 @@ export default class MarketListScreen extends React.Component {
               horizontal={false}
               renderItem={({item}) =>
               <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('MarketDetail')}>
+                  onPress={() => this.props.navigation.navigate('MarketDetail', {id: item.id})}>
                   <View>
                       <View>
                           <Image

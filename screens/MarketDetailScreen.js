@@ -5,8 +5,35 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 
 export default class MarketDetailScreen extends React.Component {
+  constructor(props){
+  super(props);
+  this.state ={ market: ''}
+  }
+  componentDidMount(){
+    return  fetch('http://192.168.0.15:3000/api/get/market', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: this.props.navigation.state.params.id
+          }),
+        })
+        .then((response) => response.json())
+          .then((responseJson) => {
+            this.setState({
+              market: responseJson[0],
+
+            }, function(){
+
+            });
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+  }
   render() {
-    let market = {key: '1', status: 'open', name: '삼각산 살림장', location: '서울 삼각산', image: 'https://trello-attachments.s3.amazonaws.com/5db8f4b864493b4c6f0c56bd/5df9f0373a36ca54c33dd631/6027010fe335210f3d95fd21cd7fcd07/image.png'};
 
     let seller = [
         {key: '1', status: 'open', name: '삼각산 살림장', location: '서울 삼각산', image: 'https://trello-attachments.s3.amazonaws.com/5db8f4b864493b4c6f0c56bd/5df9f0373a36ca54c33dd631/6027010fe335210f3d95fd21cd7fcd07/image.png'},
@@ -27,13 +54,13 @@ export default class MarketDetailScreen extends React.Component {
           <View style={{flexDirection: 'row', justifyContent: 'space-around', marginTop: 10}}>
                 <View>
                     <Image
-                        source={{uri: market.image}}
+                        source={{uri: ''}}
                         style={{width: 170, height: 170, borderTopLeftRadius: 10, borderTopRightRadius: 10 ,backgroundColor: '#000000'}}/>
                 </View>
                 <View style={{width: 170, height: 170}}>
                     <View style={{height: 140}}>
-                    <Text style={{fontSize: 20}}>{market.name}</Text>
-                    <Text style={{fontSize: 18}}>{market.location}</Text>
+                    <Text style={{fontSize: 20}}>{this.state.market.title}</Text>
+                    <Text style={{fontSize: 18}}>{this.state.market.location}</Text>
                     </View>
                     <Image
                         source={{uri: 'https://trello-attachments.s3.amazonaws.com/5db8f4b864493b4c6f0c56bd/5dd0dd31e005e438c97409da/160eddd8d006621aecf812c654e25bf5/image.png'}}
